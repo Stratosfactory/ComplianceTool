@@ -11,8 +11,8 @@
         />
       </div>
       <div class="inputContainer">
-        <label>Current Date:</label>
-
+        <label>Est. Completion Date:</label>
+  
         <Calendar
           v-model="date"
           dateFormat="dd.mm.yy"

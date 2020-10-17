@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ruleSet from "./ruleset.json"
+import ruleSet from "./Rulesets/ruleset.json"
 export default {
     data: function(){
         return{
