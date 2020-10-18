@@ -4,9 +4,16 @@
     <p class="arrayDisplay">Chosen Article: {{ selectedArticle }}</p>
     <project-basics @set-basic-data="setBasicData"></project-basics>
     <p class="arrayDisplay">Project Basic Data: {{ projectBasics }}</p>
-    <project-details :article="selectedArticle" @submit-project-details="setAdvancedData"></project-details>
+    <project-details
+      :article="selectedArticle"
+      @submit-project-details="setAdvancedData"
+    ></project-details>
     <p class="arrayDisplay">Project Advanced Data: {{ projectAdvanced }}</p>
-    <checklist></checklist>
+    <checklist
+      :projectBasics="projectBasics"
+      :projectAdvanced="projectAdvanced"
+      :selectedArticle="selectedArticle"
+    ></checklist>
   </div>
 </template>
 
@@ -28,7 +35,7 @@ export default {
     return {
       selectedArticle: "",
       projectBasics: null,
-      projectAdvanced:null,
+      projectAdvanced: null,
     };
   },
   methods: {
@@ -38,14 +45,14 @@ export default {
     setBasicData: function (entity, date, pname, image) {
       this.projectBasics = {
         entity,
-        projectDate: date,
-        projectName: pname,
-        projectImage: image,
+        "Project Date": date,
+        "Project Name": pname,
+        "Project Image": image,
       };
     },
-    setAdvancedData:function(test){
-      this.projectAdvanced=test;
-    }
+    setAdvancedData: function (test) {
+      this.projectAdvanced = test;
+    },
   },
 };
 </script>
@@ -55,7 +62,7 @@ body {
   background: whitesmoke;
   font-family: "Sora", sans-serif;
 }
-.appContainer{
+.appContainer {
   border: 2px hsl(200, 35%, 45%) solid;
   border-radius: 5px;
   width: 80%;
@@ -93,7 +100,7 @@ h2 {
   font-size: 30px;
   text-align: center;
 }
- label {
+label {
   color: white;
   align-self: center;
   margin-right: 2vmin;
