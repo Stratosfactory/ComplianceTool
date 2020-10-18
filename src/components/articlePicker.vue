@@ -51,7 +51,7 @@ export default {
         {
           id: 3,
           name: "Leather good",
-          symbol: "pi pi-inbox",
+          symbol: "pi pi-briefcase",
           abbr: "leather",
           selected: false,
         },

@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="appContainer">
     <article-picker @submit-article="addArticle"></article-picker>
     <p class="arrayDisplay">Chosen Article: {{ selectedArticle }}</p>
     <project-basics @set-basic-data="setBasicData"></project-basics>
     <p class="arrayDisplay">Project Basic Data: {{ projectBasics }}</p>
-    <project-details :article="selectedArticle"></project-details>
+    <project-details :article="selectedArticle" @submit-project-details="setAdvancedData"></project-details>
+    <p class="arrayDisplay">Project Advanced Data: {{ projectAdvanced }}</p>
     <checklist></checklist>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
     return {
       selectedArticle: "",
       projectBasics: null,
+      projectAdvanced:null,
     };
   },
   methods: {
@@ -41,6 +43,9 @@ export default {
         projectImage: image,
       };
     },
+    setAdvancedData:function(test){
+      this.projectAdvanced=test;
+    }
   },
 };
 </script>
@@ -49,6 +54,15 @@ export default {
 body {
   background: whitesmoke;
   font-family: "Sora", sans-serif;
+}
+.appContainer{
+  border: 2px hsl(200, 35%, 45%) solid;
+  border-radius: 5px;
+  width: 80%;
+  -webkit-box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
+  -moz-box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
+  box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
+  margin: auto;
 }
 .contentContainer {
   -webkit-box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
@@ -78,6 +92,12 @@ h2 {
   width: 70%;
   font-size: 30px;
   text-align: center;
+}
+ label {
+  color: white;
+  align-self: center;
+  margin-right: 2vmin;
+  justify-self: center;
 }
 
 @import url(https://fonts.googleapis.com/css2?family=Sora&display=swap);

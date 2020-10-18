@@ -99,12 +99,7 @@ export default {
   margin: 1% 1% 1% 1%;
   text-align: center;
 }
-.inputContainer label {
-  color: white;
-  align-self: center;
-  margin-right: 2vmin;
-  justify-self: center;
-}
+
 
 
 </style>
