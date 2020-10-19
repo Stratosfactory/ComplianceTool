@@ -1,6 +1,51 @@
 [{
-    "articleType": "watch",
-    "country": "global",
-    "ruleSet": "Check for precious metal halmarks",
-    "ruleExp": "According to the chosen precious metal composition for the projected watch, all necessary parts are hallmarked"
-}]
+        "articleType": "watch",
+        "ruleSet": [{
+                "country": "Global",
+                "category": "Precious Metal & Stones",
+                "rule": "Check for precious metal halmarks",
+                "ruleExp": "According to the chosen precious metal composition for the projected watch, all necessary parts are hallmarked"
+            },
+            {
+                "country": "Global",
+                "category": "Data Compliance",
+                "rule": "Rules of data compliance are followed accordingly",
+                "ruleExp": "All provided data in SAP is correct and complete (quality & quantity check)"
+            },
+            {
+                "country": "Global",
+                "category": "Regulatory Intelligence",
+                "rule": "No forbidden material is used",
+                "ruleExp": "All materials in the projected watch are not under banned conditions"
+            }
+        ]
+    },
+    {
+        "articleType": "eee",
+        "ruleSet": [{
+                "country": "Global",
+                "category": "Electronic Equipment",
+                "rule": "Thorough product labelling",
+                "ruleExp": "All required labels are applied to the electronic article and box"
+            },
+            {
+                "country": "Global",
+                "category": "Data Compliance",
+                "rule": "Rules of data compliance are followed accordingly",
+                "ruleExp": "All provided data in SAP is correct and complete (quality & quantity check)"
+            },
+            {
+                "country": "Global",
+                "category": "Chemical Compliance",
+                "rule": "SCCC comfirmation of supplier",
+                "ruleExp": "The supplier of the article confirms the SCCC and therefore the PRSL"
+            },
+            {
+                "country": "Global",
+                "category": "Electronic Equipment",
+                "rule": "Thorough product labelling",
+                "ruleExp": "All required labels are applied to the electronic article and box"
+            }
+        ]
+    }
+]

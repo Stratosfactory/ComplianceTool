@@ -9,9 +9,12 @@
       >
         <span>{{ index }}: </span>{{ item }}
       </div>
-      <div id="preview"  class="headerElement">
-        <span>Project Image: </span> <br><img  :src="projectImage" v-if="projectImage!=null" />
-        </div>
+      <div id="preview" class="headerElement">
+        <span>Project Image: </span> <br /><img
+          :src="projectImage"
+          v-if="projectImage != null"
+        />
+      </div>
     </div>
 
     <div class="headerBasic">
@@ -23,24 +26,41 @@
         <span>{{ item.name }}:</span> {{ item.value }}
       </div>
     </div>
-
-    <!-- <div>{{ ruleSet }}}</div> -->
+    <div class="checklist">
+      <DataTable :value="filterRuleSet.ruleSet" class="table" >
+        <Column field="category" header="Category" headerClass="tableHeader" bodyClass="rowElement"></Column>
+        <Column field="rule" header="Rule Name" headerClass="tableHeader" bodyClass="rowElement"></Column>
+        <Column field="ruleExp" header="Explanation" headerClass="tableHeader" bodyClass="rowElement"></Column>
+      </DataTable>
+    </div>
   </div>
 </template>
 
 <script>
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
 import ruleSet from "./Rulesets/ruleset.json";
 export default {
+  components: { DataTable, Column },
   props: {
     projectBasics: { type: Object, required: true },
     projectAdvanced: { type: Array, required: true },
     selectedArticle: { type: String, required: true },
-    projectImage:{type:String}
+    projectImage: { type: String },
   },
   data: function () {
     return {
       ruleSet: ruleSet,
     };
+  },
+  computed: {
+    filterRuleSet: function () {
+      var article = this.selectedArticle;
+      const filteredRule = this.ruleSet.filter(
+        (input) => input.articleType === article
+      );
+      return filteredRule[0];
+    },
   },
 };
 </script>
@@ -68,8 +88,31 @@ export default {
 span {
   color: lightgrey;
 }
-img{
+img {
   width: 200px;
   height: 200px;
 }
+.checklist {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+}
+.table {
+  border: 2px hsl(200, 30%, 30%) solid;
+}
+</style>
+
+<style>
+.tableHeader {
+  background-color: hsl(200, 30%, 30%) !important;
+  color:white !important;
+  font-family: "Sora", sans-serif;
+  border:white solid 2px !important;
+  
+}
+
+.rowElement{
+  border-right:1px hsl(200, 30%, 30%) solid !important;
+}
+
 </style>
