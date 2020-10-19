@@ -13,6 +13,7 @@
       :projectBasics="projectBasics"
       :projectAdvanced="projectAdvanced"
       :selectedArticle="selectedArticle"
+      :projectImage="projectImage"
     ></checklist>
   </div>
 </template>
@@ -36,6 +37,7 @@ export default {
       selectedArticle: "",
       projectBasics: null,
       projectAdvanced: null,
+      projectImage:null,
     };
   },
   methods: {
@@ -47,8 +49,9 @@ export default {
         entity,
         "Project Date": date,
         "Project Name": pname,
-        "Project Image": image,
+        
       };
+      this.projectImage= image
     },
     setAdvancedData: function (test) {
       this.projectAdvanced = test;

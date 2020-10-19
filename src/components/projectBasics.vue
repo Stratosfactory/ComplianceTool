@@ -12,7 +12,7 @@
       </div>
       <div class="inputContainer">
         <label>Est. Completion Date:</label>
-  
+
         <Calendar
           v-model="date"
           dateFormat="dd.mm.yy"
@@ -26,9 +26,10 @@
         <InputText type="text" v-model="projectName" @keyup="setBasicData" />
       </div>
       <div class="inputContainer">
-        <label >Upload Image:</label>
-      <label style="border:2px white solid; padding: 3px 3px 3px 3px"><input type="file" @change="imageUpload" accept="image/*"> </label>
-      
+        <label>Upload Image:</label>
+        <label style="border: 2px white solid; padding: 3px 3px 3px 3px"
+          ><input type="file" @change="imageUpload" accept="image/*" />
+        </label>
       </div>
     </div>
   </div>
@@ -40,13 +41,14 @@ import Dropdown from "primevue/dropdown";
 import Calendar from "primevue/calendar";
 
 export default {
-  components: { Calendar, Dropdown, InputText},
+  components: { Calendar, Dropdown, InputText },
   data: function () {
     return {
+      imageUrl: null,
       date: new Date(),
-      selectedEntity:{ entity: "" },
-      fileName:null,
-      projectName:null,
+      selectedEntity: { entity: "" },
+      fileName: null,
+      projectName: null,
       entities: [
         { entity: "Company A" },
         { entity: "Company B" },
@@ -55,15 +57,22 @@ export default {
       ],
     };
   },
-  methods:{
-    imageUpload:function(event){
-      var file = event.target.files;
-      this.fileName=file;
+  methods: {
+    imageUpload: function (event) {
+      const file = event.target.files[0];
+      this.fileName = file;
+      this.imageUrl = URL.createObjectURL(file);
     },
-    setBasicData:function(){
-      this.$emit("set-basic-data",this.selectedEntity.entity,this.date,this.projectName,this.fileName)
-    }
-  }
+    setBasicData: function () {
+      this.$emit(
+        "set-basic-data",
+        this.selectedEntity.entity,
+        this.date.toLocaleDateString(),
+        this.projectName,
+        this.imageUrl
+      );
+    },
+  },
 };
 </script>
 
@@ -99,7 +108,4 @@ export default {
   margin: 1% 1% 1% 1%;
   text-align: center;
 }
-
-
-
 </style>
