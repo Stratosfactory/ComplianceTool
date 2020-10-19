@@ -30,7 +30,7 @@
       <DataTable :value="filterRuleSet.ruleSet" class="table" >
         <Column field="category" header="Category" headerClass="tableHeader" bodyClass="rowElement"></Column>
         <Column field="rule" header="Rule Name" headerClass="tableHeader" bodyClass="rowElement"></Column>
-        <Column field="ruleExp" header="Explanation" headerClass="tableHeader" bodyClass="rowElement"></Column>
+        <Column field="ruleExp" header="Explanation" headerClass="tableHeader"></Column>
       </DataTable>
     </div>
   </div>
