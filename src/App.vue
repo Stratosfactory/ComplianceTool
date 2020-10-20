@@ -1,5 +1,6 @@
 <template>
   <div class="appContainer">
+    <app-heading></app-heading>
     <article-picker @submit-article="addArticle"></article-picker>
     <p class="arrayDisplay">Chosen Article: {{ selectedArticle }}</p>
     <project-basics @set-basic-data="setBasicData"></project-basics>
@@ -23,6 +24,7 @@ import articlePicker from "./components/articlePicker.vue";
 import checklist from "./components/checklist.vue";
 import projectDetails from "./components/projectDetails.vue";
 import projectBasics from "./components/projectBasics";
+import appHeading from "./components/Header";
 
 export default {
   name: "App",
@@ -31,6 +33,7 @@ export default {
     checklist: checklist,
     projectDetails: projectDetails,
     projectBasics: projectBasics,
+    appHeading: appHeading,
   },
   data: function () {
     return {

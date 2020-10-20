@@ -1,5 +1,5 @@
 <template>
-  <div v-if="projectAdvanced != null">
+  <div v-if="projectAdvanced != null" class="checklistContainer">
     <h2>Compliance Checklist</h2>
     <div class="headerBasic">
       <div
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="checklist">
-      <DataTable :value="filterRuleSet.ruleSet" class="table" >
+      <DataTable :value="filterRuleSet.ruleSet" class="table" v-model:selection="selectedElement" selectionMode="single" dataKey="category" :metaKeySelection="false" >
         <Column field="category" header="Category" headerClass="tableHeader" bodyClass="rowElement"></Column>
         <Column field="rule" header="Rule Name" headerClass="tableHeader" bodyClass="rowElement"></Column>
         <Column field="ruleExp" header="Explanation" headerClass="tableHeader"></Column>
@@ -50,6 +50,7 @@ export default {
   },
   data: function () {
     return {
+      selectedElement:null,
       ruleSet: ruleSet,
     };
   },
@@ -71,8 +72,9 @@ export default {
   align-items: stretch;
   align-content: space-around;
   justify-content: space-evenly;
-  width: 70%;
+ 
   margin: auto;
+  
   flex-wrap: wrap;
   flex-direction: row;
   border: 2px black solid;
@@ -93,10 +95,22 @@ img {
   height: 200px;
 }
 .checklist {
-  width: 70%;
+  
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
+.checklistContainer {
+  -webkit-box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
+  -moz-box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
+  box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
+  width: 71%;
+  margin:auto;
+  padding: 1% 1% 1% 1%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
 .table {
   border: 2px hsl(200, 30%, 30%) solid;
 }
