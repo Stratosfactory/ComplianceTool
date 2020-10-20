@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="headingContainer"> <br>
+      <div class="headingContainer">
       <img src="../assets/cloud.png">
       <h1>CHECKLIST CREATOR</h1>
       </div>
@@ -18,16 +18,16 @@ export default {
 img{
   width: 100px;
   height: 100px;
- margin-left: 17%;
+
  align-self: left;
 }
 h1{
-  justify-self: center;
+  
   color:white;
   font-size: 40px;
-  text-align:center;
-  align-self: center;
-  margin-left: 10px;
+  text-align:end;
+  
+  margin-left: 40px;
   
 }
 .headingContainer{
@@ -35,7 +35,10 @@ h1{
   border: 2px hsl(200, 35%, 45%) solid;
   margin:auto;
   display: flex;
-  align-content: stretch;
+  align-content:center;
+  align-items: center;
+  justify-content:center;
+  justify-items: center;
   background-color:hsl(200, 55%, 15%);
   border-radius: 5px;
    -webkit-box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.77);
