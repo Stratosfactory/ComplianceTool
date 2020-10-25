@@ -16,6 +16,12 @@
       :selectedArticle="selectedArticle"
       :projectImage="projectImage"
     ></checklist>
+    <submit-button
+      v-if="projectAdvanced != null"
+      :projectBasics="projectBasics"
+      :projectAdvanced="projectAdvanced"
+      :selectedArticle="selectedArticle"
+    ></submit-button>
   </div>
 </template>
 
@@ -25,6 +31,7 @@ import checklist from "./components/checklist.vue";
 import projectDetails from "./components/projectDetails.vue";
 import projectBasics from "./components/projectBasics";
 import appHeading from "./components/Header";
+import submitButton from "./components/submitButton";
 
 export default {
   name: "App",
@@ -34,13 +41,14 @@ export default {
     projectDetails: projectDetails,
     projectBasics: projectBasics,
     appHeading: appHeading,
+    submitButton: submitButton,
   },
   data: function () {
     return {
       selectedArticle: "",
       projectBasics: null,
       projectAdvanced: null,
-      projectImage:null,
+      projectImage: null,
     };
   },
   methods: {
@@ -50,11 +58,10 @@ export default {
     setBasicData: function (entity, date, pname, image) {
       this.projectBasics = {
         entity,
-        "Fertigstellungstermin": date,
-        "Projektname": pname,
-        
+        Fertigstellungstermin: date,
+        Projektname: pname,
       };
-      this.projectImage= image
+      this.projectImage = image;
     },
     setAdvancedData: function (test) {
       this.projectAdvanced = test;
