@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Choose your type of article</h2>
+    <h2>Artikeltyp</h2>
 
     <div>
       <div id="container" class="contentContainer">
@@ -29,28 +29,28 @@ export default {
       articleArray: [
         {
           id: 0,
-          name: "Watches",
+          name: "Uhr",
           symbol: "pi pi-clock",
           abbr: "watch",
           selected: false,
         },
         {
           id: 1,
-          name: "Electrical Device",
+          name: "Elektrisches Gerät ",
           symbol: "pi pi-power-off",
           abbr: "eee",
           selected: false,
         },
         {
           id: 2,
-          name: "Toys",
+          name: "Spielzeug",
           symbol: "pi pi-android",
           abbr: "toy",
           selected: false,
         },
         {
           id: 3,
-          name: "Leather good",
+          name: "Leder Accessories",
           symbol: "pi pi-briefcase",
           abbr: "leather",
           selected: false,

@@ -11,7 +11,7 @@
         />
       </div>
       <div class="inputContainer">
-        <label>Est. Completion Date:</label>
+        <label>Fertigstellungstermin:</label>
 
         <Calendar
           v-model="date"
@@ -21,12 +21,12 @@
         />
       </div>
       <div class="inputContainer">
-        <label>Project Name:</label>
+        <label>Projektname:</label>
 
         <InputText type="text" v-model="projectName" @keyup="setBasicData" />
       </div>
       <div class="inputContainer">
-        <label>Upload Image:</label>
+        <label>Projektbild:</label>
         <label style="border: 2px white solid; padding: 3px 3px 3px 3px"
           ><input type="file" @change="imageUpload" accept="image/*" />
         </label>

@@ -50,8 +50,8 @@ export default {
     setBasicData: function (entity, date, pname, image) {
       this.projectBasics = {
         entity,
-        "Project Date": date,
-        "Project Name": pname,
+        "Fertigstellungstermin": date,
+        "Projektname": pname,
         
       };
       this.projectImage= image
